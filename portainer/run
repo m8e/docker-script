@@ -1,6 +1,5 @@
 ### VARIABLES
 DATA=
-IMAGE=portainer/portainer
 
 ### mayVARIABLES
 MEM=512M # maximum of MEMORY could be use
@@ -8,14 +7,15 @@ RESTART=on-failure:5
 
 #### unVARIABLES
 PROJECT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=portainer/portainer
 
 if [[ -z $DATA ]]; then
   DATA=$PROJECT
 else
   DATA="$( cd "$(dirname "$0")" ; pwd -P )"
-fi
-if [[ ! -d $DATA ]]; then
+  if [[ ! -d $DATA ]]; then
   mkdir $DATA
+  fi
 fi
 
 ## REMOVE OLD PROJECT
