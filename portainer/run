@@ -1,35 +1,20 @@
-### VARIABLES
-DATA=
 
-### mayVARIABLES
-MEM=512M # maximum of MEMORY could be use
+IMAGE=portainer/portainer
+PROJECT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 RESTART=on-failure:5
 
-#### unVARIABLES
-PROJECT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
-IMAGE=portainer/portainer
+source .env
 
-if [[ -z $DATA ]]; then
-  DATA=$PROJECT
-else
-  DATA="$( cd "$(dirname "$0")" ; pwd -P )"
-  if [[ ! -d $DATA ]]; then
-  mkdir $DATA
-  fi
-fi
-
-## REMOVE OLD PROJECT
 docker stop $PROJECT
 docker rm $PROJECT
-
-### PULL LAST VERSION
 docker pull $IMAGE
 
-# RUN FOREST RUN
-docker run -dP \
+docker run -d \
+  -e VIRTUAL_HOST=$VHOST \
   --memory $MEM \
   --name $PROJECT \
-  --security-opt no-new-privileges \
+  --net=$NETWORK \
   --restart $RESTART \
-  -v $DATA:/data \
+  --security-opt no-new-privileges \
+  -v $PROJECT:/data \
   $IMAGE
