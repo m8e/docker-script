@@ -1,6 +1,7 @@
 
-IMAGE=portainer/portainer
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=portainer/portainer
+MEM=64M
 RESTART=on-failure:5
 
 source .env
