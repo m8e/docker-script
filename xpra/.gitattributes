@@ -1,4 +1,4 @@
-FROM: https://raw.githubusercontent.com/linuxserver/new-project-templates/master/docker/.gitattributes
+# FROM: https://raw.githubusercontent.com/linuxserver/new-project-templates/master/docker/.gitattributes
 
 # Auto detect text files and perform LF normalization
 * text=auto
@@ -17,3 +17,9 @@ FROM: https://raw.githubusercontent.com/linuxserver/new-project-templates/master
 *.PDF  diff=astextplain
 *.rtf  diff=astextplain
 *.RTF  diff=astextplain
+
+# FROM: https://raw.githubusercontent.com/ansible/ansible/devel/.gitattributes
+CHANGELOG.md merge=union
+.github/ export-ignore
+hacking/ export-ignore
+ticket-stubs/ export-ignore
