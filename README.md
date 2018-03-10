@@ -91,16 +91,6 @@ echo "$VHOST" > .env
 
 /bin/bash run  
 ````
-
-##### *Don't forget is you don't have a DNS server pointing to the domain, you could   
-1' modify /etc/hosts or C:/Windows/hosts and forge your DNS entry for you host only like this :  
-````
-Linux.Host.IP   myportainer.mydomain.tld  
-192.168.192.1.1 myportainer.mydomain.tld  
-````
-2' build a local DNS server with PiHole  
-
-
 #### A LITTLE BIT MORE COMPLEX EXAMPLE
 Here portainer will still available under : myportainer.mydomain.tld\* but we use a **proxy** which accepting request only from a specific **docker network**.  
 
@@ -119,3 +109,10 @@ EOM
 
 /bin/bash run  
 ````
+##### *Don't forget is you don't have a DNS server pointing to the domain, you could   
+1' modify /etc/hosts or C:/Windows/hosts and forge your DNS entry for you host only like this :  
+````
+Linux.Host.IP   myportainer.mydomain.tld  
+192.168.192.1.1 myportainer.mydomain.tld  
+````
+2' build a local DNS server with PiHole  
