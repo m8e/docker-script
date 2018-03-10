@@ -7,13 +7,13 @@ I'm a poor lonesome cowboy and a long way from home, wandering in the **World Wi
 
 As a Certified **Linux System Administrator** by Linux Foundation and Certified **Ethical Hacker** by EC-Council,  
 I :
-- Build, maintain and improve servers and services.  
-- Coach about **IT Security** and **Linux** servers and services.  
-- Train **Commons sense** and **Digital citizenship** to organizations, kids and families.  
+- Build, maintain and improve servers and services for startups, SMEs and NGO;  
+- Coach teams and companies about **IT Security** and **Linux** servers and services;  
+- Train organizations, kids and families on **Commons sense** and **Digital citizenship**.  
 ## What
 I don't want to reinvent the wheel, **this is not a bunch of docker image**. Yes! I believe it's possible to find smart people/teams who build docker image well or better to use the official one.  
 
-### WYgIWYse (What You get Is What You should expect)
+### You get
 - **independent and versatile** : able to run standalone or with docker-gen  
   - **official image** *as possible or at least well-known images*  
 - run with the **least privilege**  
@@ -23,7 +23,7 @@ I don't want to reinvent the wheel, **this is not a bunch of docker image**. Yes
   - specific **capabilities** when required  
   - specific **cgroups** when required (*planned*)  
   - specific **seccomp** (*planned*)  
-### You will need
+### You need
 #### REQUIRED
  - Linux host
  - Curl
@@ -32,7 +32,7 @@ I don't want to reinvent the wheel, **this is not a bunch of docker image**. Yes
 ##### *\*[how to install docker](https://docs.docker.com/install/)*
 #### RECOMMENDED
 - Basic **Bash** and **Git** experience
-- Text editor on the Linux host
+- Text editor on the Linux host  
 #### NICE TO HAVE
 - DNS management knowledge  
 - A domain name who's supporting dynamic change  
@@ -41,7 +41,7 @@ It's could be a good start to use these scripts if you want to start fast and/or
 ## Where
 I personally run them on different **docker hosts** such as :
 - Alpine Linux with grsecurity/PaX  
-- Debian/Ubuntu with CGROUPS
+- Debian/Ubuntu with AppArmor
 - CentOS/Fedora with SELinux  
   
 on a **nodev**,**noexec**,**nosuid** partition  
@@ -49,18 +49,17 @@ with a **docker daemon** running with :
   - no intercommunication *(--icc=false)*  
   - no new privileges  *(--no-new-privileges)*
   - user namespace *(--userns-remap=)*\*
-  
 ##### *\*incompatible with SELinux.*
 ## Why
 Too often I see **docker images** running services as root and/or **docker daemon** also running as root. Also too often I see/saw scripts, Dockerfile, docker-compose, rancher-compose, ... being complex and tight to infrastructure. By default Docker philosophy is to make services universal and easy to deploy, to take over.
 ## How
 All scripts are meant to run alone without any further specification/configuration but this will be obviously not practical and versatile; so you may interact with any of them by creating a **.env file** at the same level of the script you want to run.
 
+You could find more info about general environment variables [here](ENV.md).  
+If a project have **specific variable** available, they will be specified inside the **README project** under the **ENVIRONMENT VARIABLE *(.env file)*** section.  
 ### But What happen if I don't define a .env file ?  
 The container will use the docker run -P argument which will expose port randomly. *(more info about <a href="https://docs.docker.com/v1.11/engine/reference/commandline/run/" title="" target="_blank">EXPOSE</a>)*
-
 ### FEW EXAMPLES
-
 #### SIMPLE EXAMPLE
 Here portainer will be available under your : **Linux host IP** on **port 8800**  
 ````
@@ -117,3 +116,4 @@ Linux.Host.IP   myportainer.mydomain.tld
 192.168.192.1.1 myportainer.mydomain.tld  
 ````
 2' build a local DNS server with PiHole  
+### <a href="DISCLAIMER.md" title="a statement in which a person or company states that they are not directly involved with or responsible for something." target="_blank">DISCLAIMER</a>
