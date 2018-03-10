@@ -1,59 +1,20 @@
+# Portainer
+A Simple management UI for Docker.
 ## PURPOSE
-These docker run are meant to run with a specific environment  
-Such as an example and well tested with :
-- [HAProxy](https://github.com/jodumont/haproxy) as proxy  
-- Docker-daemon options :  
-  --icc=false  
-  --no-new-privileges  
-  --userns-remap=default*  
-  --H unix:///var/run/docker.sock  
-  --H tcp://0.0.0.0*  
-
-*theses options have intentionnaly wrong values.
-
-## HOW TO USE
-````
-mkdir portainer  
-cd portainer
-curl -o run https://raw.githubusercontent.com/jodumont/docker/master/portainer/run  
-/bin/bash run  
-````
-**Please pay attention at the ENVIRONMENT VARIABLE SECTION**
-
-### IMAGE
+I believe you could find answers to **General Questions** <a href="../../README.md" title="" target="_blank">here</a>.  
+Don't hesitate to <a href="https://github.com/jodumont/docker/issues/new" title="Ask a question by submitting an issue on github." target="_blank">ask any question</a> even if it's to know which colour is the blue sky ? :)  
+But please before, <a href="https://github.com/jodumont/docker/issues?utf8=%E2%9C%93&q=is%3Aissue" title="Please look for a similar question through all the issues before opening a new one." target="_blank">try to see if someone had a similar question.</a>
+## IMAGE MAINTAINER
 The official build by portainer  
 - portainer/portainer
+## REQUIREMENT
+Portainer need to interact with your docker daemon. To make this happen you have two choices :  
+~~1' Running the container with root privilege.~~
 
-## ENVIRONMENT VARIABLE
-- Optionnal but highly recommanded you could pass these variables.  
-- It could run as it is without any variables define by you.  
+2' Exposing your Docker Socket via TCP*  
 
-But if you want, you could define further mentionned variable by putting them into a **.env file**  
+I beleive the second method is the better because, anyway if you want to manage a bunch Docker Host with via one Docker Manager you will have to expose it.
+##### *\*<a href="https://docs.docker.com/engine/reference/commandline/dockerd/" title="Search for '-H ' inside the Docker Daemon Documentation." target="_blank">Docker Daemon Documentation</a>*
 
-### CONTAINER NAME
-By default it will be the name of the directory where it been stocked.  
-To define it, replace **CONTAINERNAME** and put this line inside a .env  
-`CONTAINER=CONTAINERNAME`
-
-### DATA
-By default it will create and use a volume named with $CONTAINER variable.  
-
-1. Alternatively you could copy the next line into your .env file which will result to store your data under **./data**  
-`DATA="$( cd "$(dirname "$0")" ; pwd -P )"`  
-
-2. You could also specify a directory by replacing **/my/directory** with your complete path  
-`DATA=/my/directory`
-
-### MEMORY LIMIT
-By default MEMORY LIMIT is at 64M  
-It Ssecify a hard limits on memory available for containers.  
-If you want to overwrite my restart policy, replace **%%M** in this example and put the line inside your .env  
-Don't forget the **M** for Megs or **G** for Gigs.  
-`MEMORY=%%M`  
-
-### RESTART POLICY
-By default the restart policy is **on-failure:5** which means it will try to restart 5times on-failure.  
-If you want to overwrite my restart policy, replace **YOURPOLICY** in this example and put the line inside your .env  
-`RESTART=YOURPOLICY`  
-
-Visit [restart policies](https://docs.docker.com/engine/reference/run/#restart-policies-restart) for more information about it.  
+## ENVIRONMENT VARIABLE *(.env file)*
+For the general ENVIRONMENT VARIABLES please refer to 
