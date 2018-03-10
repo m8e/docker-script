@@ -3,7 +3,7 @@
 
 ## Who
 I'm a poor lonesome cowboy and a long way from home, wandering in the **World Wild Web** and trying to make it better.  
-*Listen I'm a poor lonesome Cowboy Original Song from Lukcy Luke in <a href="assets/Lucky_Luke-Im_a_poor_lonesome_cowboy.wbem" title="Lucky Luke I'm a poor lonesome Cowboy" target="_blank">wbem</a> | <a href="assets/Lucky_Luke-Im_a_poor_lonesome_cowboy.ogg" title="Lucky Luke I'm a poor lonesome Cowboy" target="_blank">ogg</a> | <a href="assets/Lucky_Luke-Im_a_poor_lonesome_cowboy.mp3" title="Lucky Luke I'm a poor lonesome Cowboy (Yes mp3 was liberated in April 2017 by Fraunhofer.)" target="_blank">mp3</a> format.*
+*Listen I'm a poor lonesome Cowboy Original Song from Lukcy Luke in <a href="assets/Lucky_Luke-Im_a_poor_lonesome_cowboy.wbem" title="Lucky Luke I'm a poor lonesome Cowboy" target="_blank">wbem</a> | <a href="assets/Lucky_Luke-Im_a_poor_lonesome_cowboy.mp3" title="Lucky Luke I'm a poor lonesome Cowboy (Yes mp3 was liberated in April 2017 by Fraunhofer.)" target="_blank">mp3</a> format.*
 
 As a Certified **Linux System Administrator** by Linux Foundation and Certified **Ethical Hacker** by EC-Council I :
 - Build, maintain and improve servers and services.  
