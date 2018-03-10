@@ -1,8 +1,8 @@
 
 ## DEFAULT VARIABLES
+CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 IMAGE=linuxserver/smokeping
 MEM=16M
-PROJECT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 RESTART=on-failure:5
 
 ## READ VARIABLES IN .env IF EXIST
@@ -19,7 +19,7 @@ NETWORK="-P"
 
 ### or works with docker-gen
 [[ -n $VHOST ]] && \
-  NETWORK="-e VIRTUAL_HOST=$VHOST --network=$VLAN"
+  NETWORK="-e VIRTUAL_HOST=$VHOST"
 [[ -n $VHOST && $VPORT ]] && \
   NETWORK="-e VIRTUAL_HOST=$VHOST -e VIRTUAL_PORT=$VPORT"
 [[ -n $VHOST && $VNET ]] && \
@@ -29,17 +29,19 @@ NETWORK="-P"
 
 ## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
 [[ -z $DATA ]] && \
-  DATA=$PROJECT
+  DATA=$CONTAINER
 
 ## CLEANUP
-docker stop $PROJECT
-docker rm $PROJECT
+docker stop $CONTAINER
+docker rm $CONTAINER
 docker pull $IMAGE
 
 ## RUN, FORREST, RUN!
 docker run -d \
+  -e PGID=$PGID \
+  -e PUID=$PUID \
   --memory $MEM \
-  --name $PROJECT \
+  --name $CONTAINER \
   --restart $RESTART \
   --security-opt no-new-privileges \
   -v $DATA:/config \
