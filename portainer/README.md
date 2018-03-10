@@ -6,7 +6,7 @@ Don't hesitate to <a href="https://github.com/jodumont/docker/issues/new" title=
 But please before, <a href="https://github.com/jodumont/docker/issues?utf8=%E2%9C%93&q=is%3Aissue" title="Please look for a similar question through all the issues before opening a new one." target="_blank">try to see if someone had a similar question.</a>
 ## IMAGE MAINTAINER
 The official build by portainer  
-- portainer/portainer
+- <a href="https://hub.docker.com/r/portainer/portainer/" title="Portainer a Simple management UI for Docker." target="_blank">portainer/portainer</a>
 ## REQUIREMENT
 Portainer need to interact with your docker daemon. To make this happen you have two choices :  
 ~~1' Running the container with root privilege.~~
