@@ -1,0 +1,40 @@
+## DEFAULT VARIABLES
+CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=postgres:alpine
+MEM=2048M
+RESTART=on-failure:5
+
+
+## READ VARIABLES IN .env IF EXIST
+[[ -f .env ]] && \
+  source .env
+
+## NETWORK
+[[ -z $NETWORK ]] && \
+  NETWORK=db_$CONTAINER
+
+[[ -z $(docker network ls|grep $NETWORK) ]] && \
+docker network create $NETWORK \
+  --internal \
+  --subnet=172.54.32.0/24
+
+## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
+[[ -z $DATA ]] && \
+  DATA=$CONTAINER
+
+## CLEANUP
+docker stop $CONTAINER
+docker rm $CONTAINER
+docker pull $IMAGE
+
+## RUN, FORREST, RUN!
+docker run -d \
+  -e POSTGRES_PASSWORD=$PASSWORD \
+  --ip=172.54.32.254 \
+  --memory $MEM \
+  --name $CONTAINER \
+  --network=$NETWORK \
+  --restart $RESTART \
+  --security-opt no-new-privileges \
+  -v $DATA:/var/lib/postgresql/data \
+  $IMAGE

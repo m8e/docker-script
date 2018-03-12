@@ -1,8 +1,8 @@
 
 ## DEFAULT VARIABLES
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
-IMAGE=linuxserver/smokeping
-MEM=16M
+IMAGE=linuxserver/transmission
+MEM=128M
 RESTART=on-failure:5
 
 ## READ VARIABLES IN .env IF EXIST
@@ -15,7 +15,7 @@ NETWORK="-P"
 
 ### or standalone with a specific port
 [[ -n $PORT ]] && \
-  NETWORK="-p $PORT:80/tcp"
+  NETWORK="-p $PORT:9000/tcp"
 
 ### or works with docker-gen
 [[ -n $VHOST ]] && \
@@ -40,11 +40,16 @@ docker pull $IMAGE
 docker run -d \
   -e PGID=$PGID \
   -e PUID=$PUID \
+  -e TZ=$TZ \
   --memory $MEM \
   --name $CONTAINER \
+  $NETWORK \
   --restart $RESTART \
   --security-opt no-new-privileges \
+  -p 51413:51413/tcp \
+  -p 51413:51413/udp \
   -v $DATA:/config \
-  -v $DATA:/data \
-  $NETWORK \
+  -v $DOWNLOADS:/downloads \
+  -v $WATCH:/watch \
   $IMAGE
+
