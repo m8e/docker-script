@@ -1,0 +1,32 @@
+
+## DEFAULT VARIABLES
+CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=linuxserver/ddclient
+MEM=32M
+RESTART=on-failure:5
+
+## READ VARIABLES IN .env IF EXIST
+[[ -f .env ]] && \
+  source .env
+
+## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
+[[ -z $DATA ]] && \
+  DATA=$CONTAINER
+
+## CLEANUP
+docker stop $CONTAINER
+docker rm $CONTAINER
+docker pull $IMAGE
+
+## RUN, FORREST, RUN!
+docker run -d \
+  -e PGID=$PGID \
+  -e PUID=$PUID \
+  -e TZ=$TZ \
+  --memory $MEM \
+  --name $CONTAINER \
+  $NETWORK \
+  --restart $RESTART \
+  --security-opt no-new-privileges \
+  -v $DATA:/config \
+  $IMAGE
