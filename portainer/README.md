@@ -17,4 +17,4 @@ I beleive the second method is the better because, anyway if you want to manage 
 ##### *\*<a href="https://docs.docker.com/engine/reference/commandline/dockerd/" title="Search for '-H ' inside the Docker Daemon Documentation." target="_blank">Docker Daemon Documentation</a>*
 
 ## ENVIRONMENT VARIABLE *(.env file)*
-For the general ENVIRONMENT VARIABLES please refer to 
+For the **GENERAL ENVIRONMENT VARIABLES** please refer to <a href="../ENV.md" title="GENERAL ENVIRONMENT VARIABLES" target="">GENERAL ENVIRONMENT VARIABLES</a>  
