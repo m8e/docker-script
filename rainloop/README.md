@@ -22,6 +22,6 @@ The most popular Rainloop image
 ## ENVIRONMENT VARIABLE *(.env file)*  
 Not a requirement but a nice to have, the script will seek you could use postgres or mysql/maria/percona with this container. You simply have to define which one in you .env file, such as :  
 `DB=postgres`  
-Then the script will connect to db_$DB network.  Obviously you have to prepare the database and the dbuser.  
+Then the script will connect to db_$DB network. Obviously you have to prepare the database and the dbuser.  
 
 For the **GENERAL ENVIRONMENT VARIABLES** please refer to <a href="../ENV.md" title="GENERAL ENVIRONMENT VARIABLES" target="">GENERAL ENVIRONMENT VARIABLES</a>
