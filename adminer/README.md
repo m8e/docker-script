@@ -1,5 +1,5 @@
 # Adminer
-A Simple database management.  
+A simple database management.  
 - *ElasticSearch*  
 - *Firebird*  
 - *MS-SQL*  
@@ -21,6 +21,6 @@ The official build by Adminer
 Your database container must be launch and available before you start Adminer.  
 
 ## ENVIRONMENT VARIABLE *(.env file)*  
-This container meant to be use with containers like postgres and percona. The scripts will look for network starting by db_ and will be connected to them.  
+This container meant to be used with containers like postgres and percona. The scripts will look for network starting by db_ and will be connected to them.  
 
 For the **GENERAL ENVIRONMENT VARIABLES** please refer to <a href="../ENV.md" title="GENERAL ENVIRONMENT VARIABLES" target="">GENERAL ENVIRONMENT VARIABLES</a> 
