@@ -26,7 +26,7 @@ such as an example :
 `DOWNLOADS=/srv/downloads/torrent`  
 `WATCH=/srv/downloads/watch`  
 
-Also, be sure you give read/write access to theses directory to the user **abc** which you could control the ID via these to variable :  
+Also, be sure you give read/write access to theses directory to the user **abc** which you could control the ID via these two variables :  
 `PGID=`  
 `PUID=`  
 
