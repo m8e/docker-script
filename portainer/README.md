@@ -1,5 +1,6 @@
 # Portainer
-A Simple management UI for Docker.
+A simple management UI for Docker.
+
 ## PURPOSE
 I believe you could find answers to **General Questions** <a href="../../README.md" title="" target="_blank">here</a>.  
 Don't hesitate to <a href="https://github.com/jodumont/docker/issues/new" title="Ask a question by submitting an issue on github." target="_blank">ask any question</a> even if it's to know which colour is the blue sky ? :)  
@@ -7,7 +8,7 @@ But please before, <a href="https://github.com/jodumont/docker/issues?utf8=%E2%9
 
 ## IMAGE MAINTAINER
 The official build by portainer  
-- <a href="https://hub.docker.com/r/portainer/portainer/" title="Portainer a Simple management UI for Docker." target="_blank">portainer/portainer</a>
+- <a href="https://hub.docker.com/r/portainer/portainer/" title="Portainer a simple management UI for Docker." target="_blank">portainer/portainer</a>
 
 ## REQUIREMENT
 Portainer need to interact with your docker daemon. To make this happen you have two choices :  

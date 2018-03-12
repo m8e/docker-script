@@ -1,5 +1,5 @@
 # Rainloop
-Monitors your server with thoughts of performance and memory usage, providing detailed insight into very recent server metrics.  
+Rainloop is a simple, modern & fast web-based email client with PGP support.  
 
 ## PURPOSE
 I believe you could find answers to **General Questions** <a href="../../README.md" title="" target="_blank">here</a>.  
@@ -8,7 +8,7 @@ But please before, <a href="https://github.com/jodumont/docker/issues?utf8=%E2%9
 
 ## IMAGE MAINTAINER
 The most popular Rainloop image  
-- <a href="https://hub.docker.com/r/hardware/rainloop/" title="Rainloop by Hardware." target="_blank">hardware/rainloop</a>  
+- <a href="https://hub.docker.com/r/hardware/rainloop/" title="Rainloop simple, modern & fast web-based email client with PGP support." target="_blank">hardware/rainloop</a>  
 
 ### Why this image
 - base on Alpine  
