@@ -49,4 +49,5 @@ docker run -d \
   -v $DATA:/config \
   $IMAGE
 
+[[ -n $DB ]] && \
 docker network connect db_$DB $CONTAINER
