@@ -46,4 +46,6 @@ docker run -d \
   -v $DATA:/rainloop/data \
   $IMAGE
 
+### CONNECT TO A DATABASE NETWORK
+[[ -n $DB ]] && \
 docker network connect db_$DB $CONTAINER
