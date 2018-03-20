@@ -29,7 +29,7 @@ But if you want to specify on which port you will access your container define t
 `PORT=8800`  
 
 ### With proxy and docker-gen
-You probably eared about the famous https://github.com/jwilder/docker-gen title="" target="_blank">docker-gen</a> by Jason Wilder which detect new container and generate configuration file for services like haproxy, nginx, fluentd or logrotation. Than if you use it with nginx or haproxy you're lucky because you could interact with it via variables.  
+You probably eared about the famous <a href="https://github.com/jwilder/docker-gen" title="" target="_blank">docker-gen</a> by Jason Wilder which detect new container and generate configuration file for services like haproxy, nginx, fluentd or logrotation. Than if you use it with nginx or haproxy you're lucky because you could interact with it via variables.  
 
 To reach the container via a domain or a subdomain you just have to declare it via the $VHOST in your .env file which will give something like this : 
 `VHOST=mycontainer.mydomain.ltd`  
