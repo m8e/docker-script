@@ -23,4 +23,6 @@ I beleive the second method is the better because, anyway if you want to manage 
 ## ENVIRONMENT VARIABLE *(.env file)*
 For the **GENERAL ENVIRONMENT VARIABLES** please refer to <a href="../ENV.md" title="GENERAL ENVIRONMENT VARIABLES" target="">GENERAL ENVIRONMENT VARIABLES</a>  
 
-### <a href="http://portainer.readthedocs.io/en/stable/faq.html#how-can-i-configure-my-reverse-proxy-to-serve-portainer" title="How can i configure my reverse proxy to serve portainer" target="_blank">REVERSE PROXY AND PORTAINER</a>
+
+### EXTRA
+- <a href="http://portainer.readthedocs.io/en/stable/faq.html#how-can-i-configure-my-reverse-proxy-to-serve-portainer" title="How can i configure my reverse proxy to serve portainer" target="_blank">Reverse proxy and Portainer</a>
