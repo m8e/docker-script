@@ -2,7 +2,7 @@
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 IMAGE=postgres:alpine
 MEM=2048M
-RESTART=on-failure:5
+RESTART=unless-stopped
 
 
 ## READ VARIABLES IN .env IF EXIST

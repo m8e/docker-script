@@ -3,7 +3,7 @@
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 IMAGE=hardware/rainloop
 MEM=128M
-RESTART=on-failure:5
+RESTART=unless-stopped
 
 ## READ VARIABLES IN .env IF EXIST
 [[ -f .env ]] && \
