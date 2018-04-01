@@ -49,7 +49,6 @@ It's could be a good start to use these scripts if you want to start fast and/or
 ## Where to use  
 I personally run them on different **docker hosts** such as :
 - Alpine Linux with grsecurity/PaX  
-- Debian/Ubuntu with AppArmor
 - CentOS/Fedora with SELinux  
   
 on a **nodev**,**noexec**,**nosuid** partition  
