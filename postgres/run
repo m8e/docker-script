@@ -4,10 +4,12 @@ IMAGE=postgres:alpine
 MEM=2048M
 RESTART=unless-stopped
 
-
 ## READ VARIABLES IN .env IF EXIST
 [[ -f .env ]] && \
   source .env
+
+[[ -f .secret ]] && \
+  source .secret
 
 ## NETWORK
 [[ -z $NETWORK ]] && \
@@ -17,6 +19,12 @@ RESTART=unless-stopped
 docker network create $NETWORK \
   --internal \
   --subnet=172.54.32.0/24
+
+## PASSWORD
+[[ -z $PASSWORD ]] && \
+  PASSWORD=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB'|head -c24) && \
+  echo "PASSWORD=$PASSWORD" > .secret && \
+  chmod 400 .secret
 
 ## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
 [[ -z $DATA ]] && \
