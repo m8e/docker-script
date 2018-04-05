@@ -8,12 +8,12 @@ But please before, <a href="https://github.com/jodumont/docker/issues?utf8=%E2%9
 
 ## IMAGE MAINTAINER
 The official build by postgres  
-- <a href="https://hub.docker.com/_/postgres/"title="The PostgreSQL object-relational database system provides reliability and data integrity." target="_blank">postgres</a>
+- <a href="https://hub.docker.com/_/postgres/" title="The PostgreSQL object-relational database system provides reliability and data integrity." target="_blank">postgres</a>
 
 ## ENVIRONMENT VARIABLE *(.env file)*
 For the **GENERAL ENVIRONMENT VARIABLES** please refer to <a href="../ENV.md" title="GENERAL ENVIRONMENT VARIABLES" target="">GENERAL ENVIRONMENT VARIABLES</a>  
 
 ### EXTRA
-If no PASSWORD is define, on the first run the script will define a 24 caracters password and store it into a read-only file named ./.secret  
+If no PASSWORD is define, on the first run the script will define a 24 caracters password and store it into a read-only file named `./.secret`  
 However; you could define PASSWORD inside .env too.
 
