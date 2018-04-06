@@ -17,6 +17,7 @@ Almost the most popular Nextcloud image ;)
 
 ## RECOMMENDATION
 - Using a database such as Postgres, Percona, MariaDB or Mysql.  
+- Define and using a static `$PORT`.  
 
 ## ENVIRONMENT VARIABLE *(.env file)*
 For the **GENERAL ENVIRONMENT VARIABLES** please refer to <a href="../ENV.md" title="GENERAL ENVIRONMENT VARIABLES" target="">GENERAL ENVIRONMENT VARIABLES</a>  
