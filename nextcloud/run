@@ -1,0 +1,59 @@
+
+## DEFAULT VARIABLES
+CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=linuxserver/nextcloud
+MEM=1024M
+RESTART=unless-stopped
+
+## READ VARIABLES IN .env IF EXIST
+[[ -f .env ]] && \
+  source .env
+
+## NETWORK
+### EXPOSE all port
+NETWORK="-P"
+
+### or standalone with a specific port
+[[ -n $PORT ]] && \
+  NETWORK="-p $PORT:443/tcp"
+
+### or works with docker-gen
+[[ -n $VHOST ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST"
+[[ -n $VHOST && $VPORT ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST -e VIRTUAL_PORT=$VPORT"
+[[ -n $VHOST && $VNET ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST --network=$VNET"
+[[ -n $VHOST && $VPORT && VNET ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST -e VIRTUAL_PORT=$VPORT --network=$VNET"
+
+## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
+[[ -z $DATA ]] && \
+  DATA=$CONTAINER
+
+## CLEANUP
+docker stop $CONTAINER
+docker rm $CONTAINER
+docker pull $IMAGE
+
+## RUN, FORREST, RUN!
+docker run -d \
+  -e PGID=$PGID \
+  -e PUID=$PUID \
+  --memory $MEM \
+  --name $CONTAINER \
+  $NETWORK \
+  --restart $RESTART \
+  --security-opt no-new-privileges \
+  -v $CONTAINER:/config \
+  -v $DATA:/data \
+  $IMAGE
+
+[[ -n $DB ]] && \
+docker network connect db_$DB $CONTAINER
+
+[[ -n $ocDownloader ]] && \
+docker exec -ti $CONTAINER /bin/bash -c '
+  apk add --no-cache aria2 curl python ffmpeg && \
+  curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl && \
+  chmod a+rx /usr/local/bin/youtube-dl'
