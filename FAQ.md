@@ -4,6 +4,11 @@ A list of questions and answers relating to a particular subject, especially one
 ## What
 This FAQ intent to answer question for the project docker-scripts. Because docker-scripts invent nothing new, most of `What is this` or `What is that` must be ask to your favorite search engine or wikipedia.  
 
+## About SUBUID and SUBGID  
+With --userremap docker run in userspace and so you must maps appropriate `UID` for user and `GID` for group.  Once you get the idea mapping these are quit simple but good explaination and simple are rare.
+<a href="SUBID.md" title="SUBID by example" target="_blank">SUBID by example</a>
+
+
 ## About Database engine (mysql, mariadb, postgres and percona)  
 ### Why I could only run one instance ?
 Most of Database engine recommand to dedicate at minimum of 512MB of RAM and to be confortable most engine will require to dedicate 2 to 4Gb. So now with this aspect in mind, do you wan to run one database instance per service as most docker-compose do ?
