@@ -130,3 +130,5 @@ Linux.Host.IP   myportainer.mydomain.tld
 2' build a local DNS server  
 
 ### <a href="DISCLAIMER.md" title="a statement in which a person or company states that they are not directly involved with or responsible for something." target="_blank">DISCLAIMER</a>
+
+### <a href="FAQ.md" title="A list of questions and answers relating to a particular subject, especially one giving basic information for users of a website." target="_blank">FAQ</a>
