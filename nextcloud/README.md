@@ -14,6 +14,7 @@ Almost the most popular Nextcloud image ;)
 - base on Alpine  
 - no root process  
 - UID and GID as variables  
+- Support Samba  
 
 ## RECOMMENDATION
 - Using a database such as Postgres, Percona, MariaDB or Mysql.  
