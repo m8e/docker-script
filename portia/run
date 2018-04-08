@@ -1,0 +1,47 @@
+
+## DEFAULT VARIABLES
+CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=scrapinghub/portia
+MEM=256M
+RESTART=unless-stopped
+
+## READ VARIABLES IN .env IF EXIST
+[[ -f .env ]] && \
+  source .env
+
+## NETWORK
+### EXPOSE all port
+NETWORK="-P"
+
+### or standalone with a specific port
+[[ -n $PORT ]] && \
+  NETWORK="-p $PORT:9001/tcp"
+
+### or works with docker-gen
+[[ -n $VHOST ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST"
+[[ -n $VHOST && $VPORT ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST -e VIRTUAL_PORT=$VPORT"
+[[ -n $VHOST && $VNET ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST --network=$VNET"
+[[ -n $VHOST && $VPORT && VNET ]] && \
+  NETWORK="-e VIRTUAL_HOST=$VHOST -e VIRTUAL_PORT=$VPORT --network=$VNET"
+
+## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
+[[ -z $DATA ]] && \
+  DATA=$CONTAINER
+
+## CLEANUP
+docker stop $CONTAINER
+docker rm $CONTAINER
+docker pull $IMAGE
+
+## RUN, FORREST, RUN!
+docker run -d \
+  --memory $MEM \
+  --name $CONTAINER \
+  $NETWORK \
+  --restart $RESTART \
+  --security-opt no-new-privileges \
+  -v $DATA:/app/data/projects \
+  $IMAGE
