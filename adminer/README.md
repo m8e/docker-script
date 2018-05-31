@@ -22,6 +22,10 @@ The official build by Adminer
 ## REQUIREMENT
 Your database container must be launch and available before you start Adminer.  
 
+### REMARK
+By default; this container will try to connect to Database Network such as :
+- db_postgres for [postgres](https://github.com/jodumont/docker-scripts/tree/master/postgres)  
+
 ## ENVIRONMENT VARIABLE *(.env file)*  
 This container meant to be used with containers like postgres and percona. The scripts will look for network starting by db_ and will be connected to them.  
 
