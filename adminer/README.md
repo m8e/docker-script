@@ -24,6 +24,7 @@ Your database container must be launch and available before you start Adminer.
 
 ### REMARK
 By default; this container will try to connect to Database Network such as :
+- db_percona for [percona](https://github.com/jodumont/docker-scripts/tree/master/percona)  
 - db_postgres for [postgres](https://github.com/jodumont/docker-scripts/tree/master/postgres)  
 
 ## ENVIRONMENT VARIABLE *(.env file)*  
