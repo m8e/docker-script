@@ -34,7 +34,9 @@ You have to edit/configure the :/config/ddclient.conf file by hand than start or
 It's possible to edit the file by running this command :  
 `docker exec -ti ddclient vi /config/ddclient.conf`
 
-A better solution will be provide in a near future.  
+### REMARK
+`use=web, web=dynamicdns.park-your-domain.com/getip`  
+must be uncomment in in `/config/ddclient.conf`
 
 ## ENVIRONMENT VARIABLE *(.env file)*  
 
