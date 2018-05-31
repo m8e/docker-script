@@ -28,10 +28,14 @@ than find the line which start with `ExecStart=`
 - Even if you already have containers running; `icc` and `no-new-privileges` are relatively safe to add.  
 - `userns-remap` will make docker running as user instead of root.  
 This option will require, at least a migration of your actual containers.  
+- `-H tcp://0.0.0.0:2375` will expose insecurely the docker daemon through the port tcp 2375.  
+Exposing the docker socket via TCP is usefull for portainer and others docker manager.  
+As first layer of security I'll recommand to specify your host IP like `-H tcp://10.1.10.1:2375` which still insecure but less expose. Than read more about it [here](https://docs.docker.com/engine/security/https/)
+
 
 which result on something like this :  
 ```
-ExecStart=/usr/bin/dockerd --icc=false --no-new-privileges -H fd://  
+ExecStart=/usr/bin/dockerd --icc=false --no-new-privileges -H tcp://0.0.0.0:2375 -H fd://  
 ```
 
 2' Restart your docker daemon  
