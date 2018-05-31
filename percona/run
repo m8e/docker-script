@@ -1,0 +1,48 @@
+## DEFAULT VARIABLES
+CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+IMAGE=percona
+MEM=2048M
+RESTART=unless-stopped
+
+## READ VARIABLES IN .env IF EXIST
+[[ -f .env ]] && \
+  source .env
+
+[[ -f .secret ]] && \
+  source .secret
+
+## NETWORK
+[[ -z $NETWORK ]] && \
+  NETWORK=db_$CONTAINER
+
+[[ -z $(docker network ls|grep $NETWORK) ]] && \
+docker network create $NETWORK \
+  --internal \
+  --subnet=172.33.6.0/24
+
+## PASSWORD
+[[ -z $MYSQL_ROOT_PASSWORD ]] && \
+  PASSWORD=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB'|head -c24) && \
+  echo "MYSQL_ROOT_PASSWORD=$PASSWORD" > .secret && \
+  chmod 400 .secret
+
+## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
+[[ -z $DATA ]] && \
+  DATA=$CONTAINER
+
+## CLEANUP
+docker stop $CONTAINER
+docker rm $CONTAINER
+docker pull $IMAGE
+
+## RUN, FORREST, RUN!
+docker run -d \
+  -e MYSQL_ROOT_PASSWORD=$PASSWORD \
+  --ip=172.33.6.254 \
+  --memory $MEM \
+  --name $CONTAINER \
+  --network=$NETWORK \
+  --restart $RESTART \
+  --security-opt no-new-privileges \
+  -v $DATA:/var/lib/mysql \
+  $IMAGE
