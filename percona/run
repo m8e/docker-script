@@ -21,7 +21,7 @@ docker network create $NETWORK \
   --subnet=172.33.6.0/24
 
 ## PASSWORD
-[[ -z $MYSQL_ROOT_PASSWORD ]] && \
+[[ -z $PASSWORD ]] && \
   PASSWORD=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB'|head -c24) && \
   echo "MYSQL_ROOT_PASSWORD=$PASSWORD" > .secret && \
   chmod 400 .secret

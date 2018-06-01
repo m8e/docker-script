@@ -1,8 +1,8 @@
 
 ## DEFAULT VARIABLES
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
-IMAGE=scrapinghub/portia
-MEM=256M
+IMAGE=
+MEM=512M
 RESTART=unless-stopped
 
 ## READ VARIABLES IN .env IF EXIST
@@ -15,7 +15,7 @@ NETWORK="-P"
 
 ### or standalone with a specific port
 [[ -n $PORT ]] && \
-  NETWORK="-p $PORT:9001/tcp"
+  NETWORK="-p $PORT:80/tcp"
 
 ### or works with docker-gen
 [[ -n $VHOST ]] && \
@@ -38,10 +38,12 @@ docker pull $IMAGE
 
 ## RUN, FORREST, RUN!
 docker run -d \
+  -e PGID=$PGID \
+  -e PUID=$PUID \
   --memory $MEM \
   --name $CONTAINER \
-  $NETWORK \
   --restart $RESTART \
   --security-opt no-new-privileges \
-  -v $DATA:/app/data/projects \
+  -v $DATA:/data \
+  $NETWORK \
   $IMAGE
