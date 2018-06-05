@@ -1,5 +1,6 @@
 # FROM: https://raw.githubusercontent.com/linuxserver/new-project-templates/master/docker/.gitignore
 
+config/
 data/
 .env
 .secret
