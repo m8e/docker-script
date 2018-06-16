@@ -34,9 +34,30 @@ You have to edit/configure the :/config/ddclient.conf file by hand than start or
 It's possible to edit the file by running this command :  
 `docker exec -ti ddclient vi /config/ddclient.conf`
 
-### REMARK
-`use=web, web=dynamicdns.park-your-domain.com/getip`  
-must be uncomment in in `/config/ddclient.conf`
+### EXAMPLE of : /config/ddclient.conf
+#### NAMECHEAP with Multidomain
+```
+daemon=300
+syslog=yes
+mail=hostmaster
+mail-failure=hostmaster
+pid=/var/run/ddclient/ddclient.pid
+ssl=yes
+                                                  
+use=web, web=dynamicdns.park-your-domain.com/getip
+protocol=namecheap                                
+server=dynamicdns.park-your-domain.com           
+                                      
+# DOMAIN 1
+login=domain1.tld, \                      
+password=Dynamic_DNS_Password \
+subdomain1, subdomain2, subdomain3
+                     
+# DOMAIN 2
+login=domain2.tld, \    
+password=Dynamic_DNS_Password \
+subdomain1, subdomain2, subdomain3
+```
 
 ## ENVIRONMENT VARIABLE *(.env file)*  
 
