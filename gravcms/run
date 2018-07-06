@@ -2,7 +2,7 @@
 ## DEFAULT VARIABLES
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 IMAGE=jodumont/gravcms
-MEM=256M
+MEM=128M
 RESTART=unless-stopped
 
 ## READ VARIABLES IN .env IF EXIST
@@ -16,6 +16,10 @@ NETWORK="-P"
 ### or standalone with a specific port
 [[ -n $PORT ]] && \
   NETWORK="-p $PORT:80/tcp"
+[[ -n $PORTS ]] && \
+  NETWORK="-p $PORTS:443/tcp"
+[[ -n $PORT && $PORTS ]] && \
+  NETWORK="-p $PORT:80/tcp -p $PORTS:443/tcp"
 
 ### or works with docker-gen
 [[ -n $VHOST ]] && \
