@@ -43,20 +43,25 @@ mail=hostmaster
 mail-failure=hostmaster
 pid=/var/run/ddclient/ddclient.pid
 ssl=yes
-                                                  
+
 use=web, web=dynamicdns.park-your-domain.com/getip
-protocol=namecheap                                
-server=dynamicdns.park-your-domain.com           
-                                      
+server=dynamicdns.park-your-domain.com
+protocol=namecheap
+
 # DOMAIN 1
-login=domain1.tld, \                      
+login=domain1.tld, \
 password=Dynamic_DNS_Password \
-subdomain1, subdomain2, subdomain3
-                     
+subdomain1.domain1.tld, subdomain2.domain1.tld, subdomain3.domain1.tld
+
 # DOMAIN 2
-login=domain2.tld, \    
+login=domain2.tld, \
 password=Dynamic_DNS_Password \
-subdomain1, subdomain2, subdomain3
+subdomain1.domain2.tld, subdomain2.domain2.tld, subdomain3.domain2.tld
+
+# DOMAIN 3
+login=domain3.tld, \
+password=Dynamic_DNS_Password \
+subdomain1.domain3.tld, subdomain2.domain3.tld, subdomain3.domain3.tld
 ```
 
 ## ENVIRONMENT VARIABLE *(.env file)*  
