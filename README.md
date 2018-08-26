@@ -1,4 +1,4 @@
-# Docker-scripts
+# Docker-script
 [DOK-uhr] who is involved in loading and unloading applications.  
 [skript] a series of instructions for a computer that are performed in a particular order.  
 
@@ -44,7 +44,8 @@ I don't want to reinvent the wheel, **this is not a bunch of docker image**. Yes
 - A domain name who's supporting dynamic change  
 
 ## When to use  
-It's could be a good start to use these scripts if you want to start fast and/or if you want to build on top of them.  If you do so, please, don't be silly and share with the community your progress, change and bugs. All comments will be considered.  
+It's could be a good start to use these 
+if you want to start fast and/or if you want to build on top of them.  If you do so, please, don't be silly and share with the community your progress, change and bugs. All comments will be considered.  
 
 ## Where to use  
 I personally run them on different **docker hosts** such as :
