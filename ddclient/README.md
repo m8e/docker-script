@@ -39,29 +39,33 @@ It's possible to edit the file by running this command :
 ```
 daemon=300
 syslog=yes
-mail=hostmaster
-mail-failure=hostmaster
+#mail=hostmaster
+#mail-failure=hostmaster
 pid=/var/run/ddclient/ddclient.pid
 ssl=yes
 
 use=web, web=dynamicdns.park-your-domain.com/getip
-server=dynamicdns.park-your-domain.com
-protocol=namecheap
 
 # DOMAIN 1
+protocol=namecheap, \
+server=dynamicdns.park-your-domain.com, \
 login=domain1.tld, \
 password=Dynamic_DNS_Password \
-subdomain1.domain1.tld, subdomain2.domain1.tld, subdomain3.domain1.tld
+@.domain1.tld, subdomain1.domain1.tld, subdomain2.domain1.tld, subdomain3.domain1.tld
 
 # DOMAIN 2
+protocol=namecheap, \
+server=dynamicdns.park-your-domain.com, \
 login=domain2.tld, \
 password=Dynamic_DNS_Password \
-subdomain1.domain2.tld, subdomain2.domain2.tld, subdomain3.domain2.tld
+@.domain2.tld, subdomain1.domain2.tld, subdomain2.domain2.tld, subdomain3.domain2.tld
 
 # DOMAIN 3
+protocol=namecheap, \
+server=dynamicdns.park-your-domain.com, \
 login=domain3.tld, \
 password=Dynamic_DNS_Password \
-subdomain1.domain3.tld, subdomain2.domain3.tld, subdomain3.domain3.tld
+@.domain3.tld, subdomain1.domain3.tld, subdomain2.domain3.tld, subdomain3.domain3.tld
 ```
 
 ## ENVIRONMENT VARIABLE *(.env file)*  
