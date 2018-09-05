@@ -1,7 +1,7 @@
 
 ## DEFAULT VARIABLES
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
-IMAGE=
+IMAGE=wallabag/wallabag
 MEM=512M
 RESTART=unless-stopped
 
