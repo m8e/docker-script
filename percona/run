@@ -21,9 +21,9 @@ docker network create $NETWORK \
   --subnet=172.33.6.0/24
 
 ## PASSWORD
-[[ -z $PASSWORD ]] && \
+[[ -z $ROOT_PASSWORD ]] && \
   PASSWORD=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB'|head -c24) && \
-  echo "MYSQL_ROOT_PASSWORD=$PASSWORD" > .secret && \
+  echo "ROOT_PASSWORD=$PASSWORD" > .secret && \
   chmod 400 .secret
 
 ## CREATE DOCKER-VOLUME IF NOT PATH SPECIFIED IN .env
@@ -36,8 +36,8 @@ docker rm $CONTAINER
 docker pull $IMAGE
 
 ## RUN, FORREST, RUN!
-docker run -d \
-  -e MYSQL_ROOT_PASSWORD=$PASSWORD \
+docker run \
+  -e MYSQL_ROOT_PASSWORD=$ROOT_PASSWORD \
   --ip=172.33.6.254 \
   --memory $MEM \
   --name $CONTAINER \
