@@ -14,8 +14,8 @@ RESTART=unless-stopped
 NETWORK="-P"
 
 ### or standalone with a specific port
-[[ -n $PORT ]] && \
-  NETWORK="-p $PORT:19999/tcp"
+[[ -n $VPORT ]] && \
+  NETWORK="-p $VPORT:19999/tcp"
 
 ### or works with docker-gen
 [[ -n $VHOST ]] && \
