@@ -49,9 +49,8 @@ if you want to start fast and/or if you want to build on top of them.  If you do
 
 ## Where to use  
 I personally run them on different **docker hosts** such as :
-- Alpine Linux with grsecurity/PaX  
-- CentOS/Fedora with SELinux  
-- Debian/[Ubuntu](UBUNTU.md) with AppArmor  
+- Debian/[Ubuntu](UBUNTU.md)/openSUSE with AppArmor  
+- Alpine Linux  
   
 on a **nodev**,**noexec**,**nosuid** partition  
 with a **docker daemon** running with :  
@@ -85,7 +84,7 @@ cd $CONTAINER
 
 curl -o run https://raw.githubusercontent.com/jodumont/docker/master/$CONTAINER/run
 
-echo "$PORT" > .env  
+echo "$VPORT" > .env  
 
 /bin/bash run  
 ````
