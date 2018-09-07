@@ -1,8 +1,10 @@
 
 ## DEFAULT VARIABLES
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
+CPUS=100 # 1024 = 100%
 IMAGE=linuxserver/ddclient
-MEM=32M
+MEM=16M
+PIDS=100
 RESTART=unless-stopped
 
 ## READ VARIABLES IN .env IF EXIST
@@ -23,9 +25,11 @@ docker run -d \
   -e PGID=$PGID \
   -e PUID=$PUID \
   -e TZ=$TZ \
+  --cpu-shares=$CPUS \
   --memory $MEM \
   --name $CONTAINER \
   $NETWORK \
+  --pids-limit=$PIDS \
   --restart $RESTART \
   --security-opt no-new-privileges \
   -v $DATA:/config \
