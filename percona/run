@@ -36,7 +36,7 @@ docker rm $CONTAINER
 docker pull $IMAGE
 
 ## RUN, FORREST, RUN!
-docker run \
+docker run -d \
   -e MYSQL_ROOT_PASSWORD=$ROOT_PASSWORD \
   --ip=172.33.6.254 \
   --memory $MEM \
