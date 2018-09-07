@@ -1,8 +1,10 @@
 
 ## DEFAULT VARIABLES
+CPUS=100 # 1024 = 100%
 CONTAINER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd | rev | cut -d/ -f 1 | rev)
 IMAGE=shaarli/shaarli
 MEM=64M
+PIDS=50
 RESTART=unless-stopped
 
 ## READ VARIABLES IN .env IF EXIST
@@ -38,9 +40,11 @@ docker pull $IMAGE
 
 ## RUN, FORREST, RUN!
 docker run -d \
+  --cpu-shares=$CPUS \
   --memory $MEM \
   --name $CONTAINER \
   $NETWORK \
+  --pids-limit=$PIDS \
   --restart $RESTART \
   --security-opt no-new-privileges \
   -v $DATA:/var/www/shaarli/data \
